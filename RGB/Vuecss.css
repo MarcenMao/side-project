@@ -1,0 +1,69 @@
+﻿:root{
+		--colorR :red;
+		--colorG :green;
+		--colorB :Blue;
+}
+h1,div{
+	text-align: center;
+	
+}
+input{
+	width : 150px;
+}
+.lineH{
+	line-height : 50px;
+}
+.lr{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	margin: 10px;
+	width: 500px;
+}
+#changecolor{
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+	
+}
+.inputdiv{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	border-width: 3px;
+	border-style: solid;
+	margin: 15px;
+	width: 500px;
+	padding: 5px;
+}
+.show{
+	width: 50px;
+	height: 50px;
+}
+.showA{
+	width: 150px;
+	height: 150px;
+}
+.showB{
+	width: 150px;
+	height: 150px;
+	margin: 10px;
+	border-width: 1px;
+	border-style: solid;
+
+}
+.leftt,.rightt{
+
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+	border-width: 3px;
+	border-style: solid;
+}
+.lr2{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    
+   <link rel="stylesheet" type="text/css" href="Vuecss.css">
+    <title></title>
+</head>
+<body>
+    <div id ="changecolor" class ="lineH"  >
+        <h1>{{Header}}</h1>
+        {{ g32() }}
+        <div class ="inputdiv">
+            <div> R: <input v-model.number="Rcolor" type="number" min ="0" max = "255" ></div>
+            <div  class="show" :style= "{backgroundColor : gR()  }">  </div>
+        </div>
+        <div class ="inputdiv">
+            <div> G: <input v-model.number="Gcolor" type="number"  min ="0" max = "255"></div>
+            <div class="show" :style= "{backgroundColor : gG()  }"></div>
+        </div>
+        <div class ="inputdiv">
+            <div> B: <input v-model.number="Bcolor" type="number" min ="0" max = "255" ></div> 
+            <div class="show" :style= "{backgroundColor : gB()  }"></div>
+        </div>
+        <div class = "lr">
+          
+            <div class = "leftt">你要的顏色
+                 <div>RGB({{Rcolor}},{{Gcolor}},{{Bcolor}})<br>
+                      Hex : {{ g32() }}
+                 </div> 
+                <div class="showB" :style= "{backgroundColor : gA()  }"></div>
+            </div>
+           
+            <div class = "rightt"> 對比色<br>
+                <div>RGB({{255-Rcolor}},{{255-Gcolor}},{{255-Bcolor}})<br>
+                    Hex : {{ g33() }}
+                </div> 
+                <div class="showB" :style= "{backgroundColor : gGBA()  }"></div>
+            </div>
+        </div>
+        <div class="lr2">
+        <div class="showA" :style= "{backgroundColor : gA()  }"></div>
+        <div class="showA" :style= "{backgroundColor : gGBA()  }"></div>
+        </div>
+    </div>
+<script src="https://unpkg.com/vue@3"></script>   
+<script>
+    
+    const vm = Vue.createApp({
+        
+        data(){
+            return{
+                Header:'RGB測試用',
+                Rcolor: '255',
+                Gcolor: '255',
+                Bcolor: '255',
+                 
+            }
+        },
+        methods: { //此處開始為 methods 區域
+            gR() {
+                return  "rgb(" +this.Rcolor+ ",0,0)";
+            //return 'yellow' ;
+            },
+            gG() {
+                return  "rgb(0," +this.Gcolor+ ",0)";
+             },
+            gB() {
+                return  "rgb(0,0," +this.Bcolor+ ")";
+            },
+            gA() {
+                return  "rgb("+this.Rcolor+","+this.Gcolor+","+this.Bcolor+")";
+            },
+            gGBA() {
+                var absR = 255-this.Rcolor;
+                var absG = 255-this.Gcolor;
+                var absB = 255-this.Bcolor;
+                return  "rgb("+absR+","+absG+","+absB+")";
+            },
+            g32(){
+
+                var aaa,bbb,ccc ;
+                if(this.Rcolor<16){
+                    aaa= 0+this.Rcolor.toString(16) ;
+                }else{
+                    aaa =this.Rcolor.toString(16);
+                }
+                if(this.Gcolor<16){
+                    bbb= 0+this.Gcolor.toString(16) ;
+                }else{
+                    bbb =this.Gcolor.toString(16);
+                }
+                if(this.Bcolor<16){
+                    ccc= 0+this.Bcolor.toString(16) ;
+                }else{
+                    ccc =this.Bcolor.toString(16);
+                }
+                return "#"+aaa+bbb+ccc;
+            },
+            g33(){
+                var absR = 255-this.Rcolor;
+                var absG = 255-this.Gcolor;
+                var absB = 255-this.Bcolor;
+                var aaa,bbb,ccc ;
+                if(absR<16){
+                    aaa= 0+(absR).toString(16) ;
+                }else{
+                    aaa =(absR).toString(16);
+                }
+                if(absG<16){
+                    bbb= 0+(absG).toString(16) ;
+                }else{
+                    bbb =(absG).toString(16);
+                }
+                if(absB<16){
+                    ccc= 0+(absB).toString(16) ;
+                }else{
+                    ccc =(absB).toString(16);
+                }
+                return "#"+aaa+bbb+ccc;
+            }
+        }
+    }) .mount('#changecolor')
+</script>
+</body>
+
+</html>
