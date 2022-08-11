@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset="utf-8"name="viewport" content="width=device-width, initial-scale=1.0">
+<title>晚餐吃什麼？</title>
+<div id="fb-root"></div>
+<script>
+
+	var food = ["鹹酥雞","拉麵", "火鍋", "炒飯", "麥當勞", "丼飯", "牛肉麵", "牛排", "鐵板燒", "咖哩飯", "鍋燒意麵", "滷味", "鐵板燒","義大利麵","八方雲集","滷肉飯","火雞肉飯"];
+	function ShowTime(){
+　		document.getElementById('showbox').innerHTML = new Date();
+　		setTimeout('ShowTime()',1000);
+	}
+
+	(function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0];
+  		if (d.getElementById(id)) return;
+  		js = d.createElement(s); js.id = id;
+  		js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.10&appId=844263425719056';
+  		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	
+	function changeButton(){
+		var Am =document.getElementById("a");
+			Am.value=food[Math.round( Math.random()*(food.length-1))];
+	}
+	function start(){
+		 var sta = document.getElementById("start");
+		 xr= setInterval('changeButton()',200);
+		 sta.style.visibility="hidden";
+	}
+	function stopb(){
+		  var sta = document.getElementById("start");
+		  var rs = document.getElementById("stop");
+		  clearInterval(xr);
+			
+
+		if(confirm("今天吃"+document.getElementById("a").value)){
+			sta.style.visibility="hidden";
+			rs.style.visibility="hidden";
+			document.getElementById("view").innerHTML="趕快去吃吧！！！別再看了我會害羞";
+		}
+		else{
+			alert("不滿意這次的選擇嗎？再試一次");
+			document.getElementById("a").value="點擊start決定今天吃什麼";	 
+			sta.style.visibility="visible"; 	
+		}
+	}
+</script>
+</head>
+
+<body   onload="ShowTime()">
+<div align="center" >
+<marquee direction="right" height="30" scrollamount="5" behavior="alternate">還在猶豫吃什麼嗎？？</marquee>
+	<h1>晚餐吃什麼？</h1>
+	<input type="text" id="a" value="點擊start決定今天吃什麼"  readonly = "readonly" style="font-size:16px"><br>
+	<input id="start" type="button" value="start" onClick="start();">
+	<input id="stop" type="button" value="stop" onClick="stopb();">
+</div>
+<div id ="view" align="center">
+
+</div>
+<div align="right" class="fb-like" data-href="http://www1.pu.edu.tw/~s1041663/forfun/dinner.html" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+<div id="showbox" align="right"></div>
+</body>
+</html>
