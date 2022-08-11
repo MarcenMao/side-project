@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+<script>
+	var img = ["Chrysanthemum.jpg", "Desert.jpg", "Hydrangeas.jpg"];
+	var x=0;
+	function left(){
+		var im = document.getElementById("p");
+		if(x>0){
+			im.src=img[x-1];
+			x=x-1;
+		}
+		else{
+			alert("最左");
+		}
+	}
+	function right(){
+		var im = document.getElementById("p");
+		if(x<2){
+			im.src=img[x+1];
+			x=x+1;
+		}
+		else{
+			alert("最右");
+		}
+	}
+</script>
+</head>
+
+<body>
+<div align="center">
+<img src="Chrysanthemum.jpg" id="p" width="403" height="302">
+<br>
+<input id="left" type="button" value="left" onClick="left()">
+<input id="right" type="button" value="right" onClick="right()">
+</div>
+</body>
+</html>

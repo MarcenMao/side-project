@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>拉霸機</title>
+<script>
+	var img = ["apple.png", "cherry.png", "grape.png", "orange.png", "watermelon.png"];
+	var count = 0;
+	var scoree = 0;
+	function changebutton(){
+		var Am = document.getElementById("a");
+		var Bm = document.getElementById("b");
+		var Cm = document.getElementById("c");
+			Am.src=img[Math.floor( Math.random()*4 + 1)];
+			Bm.src=img[Math.floor( Math.random()*4 + 1)];
+			Cm.src=img[Math.floor( Math.random()*4 + 1)];
+
+	}
+
+	function goee(){
+			
+			if(document.getElementById("but").value=="start"){
+			    count++;
+				document.getElementById("but").value="stop";
+				document.getElementById("view").innerHTML="你已經遊玩了"+count+"次";	
+				xr = setInterval('changebutton()',200);
+	
+			}else{
+					score();
+					document.getElementById("but").value="start";
+					document.getElementById("view").innerHTML="你已經遊玩了"+count+"次";	
+					clearInterval(xr);
+				
+					function score(){
+		
+						var Ac = document.getElementById("a").src;
+						var Bc = document.getElementById("b").src;
+						var Cc = document.getElementById("c").src;
+						if(Ac==Bc||Ac==Cc||Cc==Bc){
+							scoree=scoree+50;	
+							document.getElementById("view1").innerHTML="你的分數"+scoree;	
+						}
+						else if( Ac==Bc && Bc==Cc ){
+							scoree=scoree+100;
+							document.getElementById("view1").innerHTML="你的分數"+scoree;		
+						}
+						else{
+							scoree=scoree+10;	
+							document.getElementById("view1").innerHTML="你的分數"+scoree;	
+						}
+			        }
+	
+	         }
+		if(count>3){
+
+				document.getElementById("but").value="Restart";
+				
+				var chec =confirm("遊戲結束,是否要再來一局");
+				if(chec ==true){
+					document.getElementById("but").value="start";
+					count=0;scoree=0;
+					document.getElementById("view1").innerHTML="你的分數00";
+				}
+				document.getElementById("view").innerHTML="你已經遊玩了3次";
+				document.getElementById("view1").innerHTML="你的分數"+scoree;	
+				clearInterval(xr);
+		}
+	
+	}
+
+
+</script>
+</head>
+
+<body>
+<div align="center">
+拉霸機<p>
+<table border="3"> 
+<td><img src="apple.png" id="a" width="100" height="100">
+<td><img src="apple.png" id="b" width="100" height="100">
+<td><img src="apple.png" id="c" width="100" height="100">
+
+</table>
+<br>
+<input type="button" value="start" id="but" onClick="goee();">
+</div>
+</p>
+<div id="view"  align="center">
+你已經遊玩了0次
+</div>
+<div id="view1"  align="center">
+你的分數00
+</div>
+</body>
+</html>

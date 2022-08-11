@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>九九乘法表</title>
+<script type="text/javascript">
+	function get(){
+		var i = document.getElementById("n1").value;
+		var j = document.getElementById("n2").value;
+			for(var a=1 ; a<=i ; a++){
+				for(var b=1 ; b<=j ; b++){	
+					document.write(b+'*'+a+'='+b*a);
+				}
+			document.write('<br>');
+			}
+	}
+</script>
+</head>
+
+<body>
+<h1 align="center">九九乘法表<h2>
+<label>數值一</label>
+<input name="name" type="text" id="n1" size="10">
+<br>
+<label>數值二</label>
+<input name="name" type="text" id="n2" size="10">
+<br>
+<input type="submit" name="submit" id="submit" value="輸出" onclick="get()">
+
+
+</body>
+</html>

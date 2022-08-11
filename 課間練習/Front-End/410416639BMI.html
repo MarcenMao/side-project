@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JavaScript Demo</title>
+
+<script type="text/javascript">
+	function get(){
+		var dataString = '';
+		var t = document.getElementById("tall").value;
+		var w = document.getElementById("weigth").value;
+		var n = document.getElementById("name").value;
+		var b = document.getElementById("birth").value;
+		var bmi = w/((t*0.01)*(t*0.01));
+		dataString = '<p align=center>姓名:'+n+'<br> 生日:'+b+'<br>身高'+t+'<br>體重'+w+'<br>BMI值'+Math.floor(bmi*100)*0.01+'</p>';
+		document.getElementById("modal-body1").innerHTML = dataString;
+}
+</script>
+</head>
+
+<body>
+<p>
+<label>姓名</label>
+<input name="name" type="text" id="name" size="10">
+<br>
+<br>
+<label>生日</label>
+<input name="birth" type="data" id="birth" size="10">
+<br>
+<br>
+<label>身高</label>
+<input name="tall" type="text" id="tall" size="10">
+公分</p>
+<p>
+<label>體重</label>
+<input name="weigth" type="text" id="weigth" size="10">
+公斤</p>
+<p>
+<input type="submit" name="submit" id="submit" value="print" onclick="get()">
+</p>
+<div>
+<div class="modal-body1" id="modal-body1"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_productList" value="name:pname;datatype:string,name:pno;datatype:int,name:price;datatype:int,name:description;datatype:string" />
+	<infoitem key="UD_UserRec" value="name:lastname;datatype:string,name:firstname;datatype:string" />
+</info>

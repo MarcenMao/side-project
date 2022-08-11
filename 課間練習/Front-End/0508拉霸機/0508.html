@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>拉霸機</title>
+<script>
+	var img = ["apple.png", "cherry.png", "grape.png", "orange.png", "watermelon.png"];
+	var x=0;
+	var www = document.getElementById("123");
+	var count = 0 ;
+	
+	function changebutton(){
+		var Am = document.getElementById("a");
+		var Bm = document.getElementById("b");
+		var Cm = document.getElementById("c");
+			Am.src=img[Math.floor( Math.random()*4 + 1)];
+			Bm.src=img[Math.floor( Math.random()*4 + 1)];
+			Cm.src=img[Math.floor( Math.random()*4 + 1)];
+
+	}
+	function start(){
+		 var sta = document.getElementById("start");
+		 xr = setInterval('changebutton()',200);
+		 sta.style.visibility="hidden";
+	
+			
+	
+	}
+	function stopb(){
+		  var sta = document.getElementById("start");
+		  var rs = document.getElementById("restart");
+		  clearInterval(xr);	
+		  sta.style.visibility="visible"; 
+		  		count++;
+				document.getElementById("view").innerHTML="你已經遊玩了"+count+"次";
+		 	if(count >= 3){
+				alert("遊完結束");
+				 sta.style.visibility="hidden";
+				 rs.style.visibility="visible"; 
+				 document.getElementById("view").innerHTML="你已經遊玩了"+3+"次";
+			}
+			
+	}
+	function restart(){
+		var sta = document.getElementById("start");
+		var rs = document.getElementById("restart");
+		  sta.style.visibility="visible"; 
+		  rs.style.visibility="hidden";
+		  
+		count =0 ;
+			document.getElementById("view").innerHTML="你已經遊玩了"+count+"次";
+	}
+</script>
+</head>
+
+<body>
+<div align="center">
+拉霸機<p>
+<table border="3"> 
+<td><img src="apple.png" id="a" width="100" height="100">
+<td><img src="apple.png" id="b" width="100" height="100">
+<td><img src="apple.png" id="c" width="100" height="100">
+
+</table>
+<br>
+
+<input id="start" type="button" value="start" onClick="start();">
+<input id="stop" type="button" value="stop" onClick="stopb();">
+<input id="restart" type="button" value="restart" onClick="restart();"  style="visibility:hidden">
+</div>
+</p>
+<div id="view"  align="center">
+你已經遊玩了0次
+</div>
+</body>
+</html>

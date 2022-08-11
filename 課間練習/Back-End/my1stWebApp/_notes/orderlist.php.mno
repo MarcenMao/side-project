@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_orderRec" value="name:oid;datatype:int,name:uid;datatype:string,name:ptime;datatype:timestamp,name:nofitems;datatype:int,name:total;datatype:int" />
+	<infoitem key="UD_UserRec" value="name:lastname;datatype:string,name:firstname;datatype:string" />
+</info>

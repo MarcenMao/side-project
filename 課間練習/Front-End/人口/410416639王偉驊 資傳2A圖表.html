@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year',  '出生','死亡'],
+		  ['2005',       205854,	139398],
+		  ['2006',       204459,	135839],
+		  ['2007',       204414,	141111],
+		  ['2008',       198733,	143624],
+		  ['2009',       191310,	143582],
+		  ['2010',       166886,	145772],
+		  ['2011',       196627,	152915],
+		  ['2012',       229481,	154251],
+          ['2013',       199113,	155908],
+          ['2014',       210383,	163929],
+          ['2015',       213598,	163858],
+          ['2016',       208440,	172405]
+        ]);
+
+        var options = {
+          title: '出生死亡人口數',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"  ></div>
+  </body>
+</html>

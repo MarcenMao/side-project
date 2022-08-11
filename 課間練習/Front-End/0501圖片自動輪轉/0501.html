@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>照片暫停與開始</title>
+<script>
+	var img = ["Chrysanthemum.jpg", "Desert.jpg", "Hydrangeas.jpg"];
+	var x=0;
+	var xr = setInterval('changebutton()',300);
+	function changebutton(){
+		var im = document.getElementById("p");
+		if(x<2){
+			im.src=img[x+1];
+			x=x+1;
+		}
+		else{
+			im.src=img[0];
+			x=0;
+
+		}
+	}
+	function start(){
+		 xr = setInterval('changebutton()',300);
+		
+	}
+		function stopb(){
+		  clearInterval(xr);
+		
+		
+	}
+</script>
+</head>
+
+<body>
+<div align="center">
+照片輪轉<p>
+<img src="Chrysanthemum.jpg" id="p" width="403" height="302">
+<br>
+
+<input id="123" type="button" value="start" onClick="start();">
+<input id="st" type="button" value="stop" onClick="stopb();">
+</div>
+</body>
+</html>
