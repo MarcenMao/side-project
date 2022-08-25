@@ -1,0 +1,56 @@
+﻿.flex{
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+	max-width:1200px;
+	margin:  auto;
+}
+section {
+	min-height: 100vh;
+	/* display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0 3rem; */
+}
+a{
+	text-decoration:none;
+	color:#f27b26;
+	font-size: 1rem;
+}
+.text-R{
+	text-align: right!important;
+}
+.divrow{
+	display: flex;
+	width: 100%;
+	max-width:1200px;
+}
+.icon{
+	position: relative;
+	max-width: 25%;    
+	white-space: nowrap;
+	margin-left: 1em;
+}
+.headlist li{
+	display:inline;
+	margin: 15px;
+	font-size: large;
+}
+.spaceA{
+	height: 50%;
+}
+.space75{
+	width: 95%;
+	/* background-color: red; */
+}
+.spaceH{
+	height: 50px;
+}
+.lead{
+	width: 90%;
+}
+.textA{
+	font-size: 1.2rem;
+	color:#f27b26;
+	padding: 1%;
+}
